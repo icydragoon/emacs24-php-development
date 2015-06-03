@@ -16,3 +16,18 @@ The latest version is at http://github.com/eschulte/emacs24-starter-kit/
 
 For more information including use and installation instructions see
 http://eschulte.github.com/emacs24-starter-kit/
+
+---
+This is for backing up my emacs customizations (wen.el) for php development.
+
+# Setup
+- emacs 24.3.1
+- Emacs Starter Kit 24
+  - php-mode
+  - php+-mode
+  - web-mode
+  - auto-complete
+  - flycheck – php syntax checking
+  - exec-path-from-shell (this is for modes that uses binary from $PATH such as phpunit and flycheck that requires php binary)
+  - phpunit
+  - yasnippet (not setup yet)
