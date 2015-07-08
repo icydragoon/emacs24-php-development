@@ -30,4 +30,11 @@ This is for backing up my emacs customizations (wen.el) for php development.
   - flycheck – php syntax checking
   - exec-path-from-shell (this is for modes that uses binary from $PATH such as phpunit and flycheck that requires php binary)
   - phpunit
-  - yasnippet (not setup yet)
+  - yasnippet (Symlink from snippets folder to use custom snippets)
+
+# How to setup TAGS file using ctags
+- Install ctags from https://github.com/universal-ctags/ctags
+- Run this in src code dir to create TAGS for php files:
+```
+find . -iname "*.php" -exec readlink -f {} \; | xargs ctags -a -e -f TAGS
+```

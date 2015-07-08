@@ -1,7 +1,3 @@
-;; enable yasnippet globally
-;;(require 'yasnippet)
-;;(yas-global-mode 1)
-
 ;; Define flycheck syntax checker for PHP and Web mode
 (require 'flycheck)
 (flycheck-define-checker my-php
@@ -48,8 +44,18 @@ See URL `http://php.net/manual/en/features.commandline.php'."
   (require 'auto-complete)
   (auto-complete-mode t)
 
+  ;; Load TAGS
+  (visit-tags-table "/opt/git/ReleaseApp/vendor/mm/TAGS")
+
+  ; expanders: typing d/s/ will expand to <div><span>|</span></div> (see web-mode-expanders).
+  ;(setq web-mode-enable-auto-expanding t)
+
   ;; Set engine for file extension
   (setq web-mode-engines-alist '(("php"    . "\\.phtml\\'")))
+
+  ;; Set comment format
+  (add-to-list 'web-mode-comment-formats '("php" . "//"))
+
 
   ;; enable flycheck-mode using my-php
   (require 'flycheck)
@@ -62,9 +68,10 @@ See URL `http://php.net/manual/en/features.commandline.php'."
   ;;         ))
 
   ;; PHP Function snippet
-  ;; (require 'php-auto-yasnippets)
-  ;; (setq php-auto-yasnippet-php-program "~/.emacs.d/elpa/php-auto-yasnippets-20141128.1411/Create-PHP-YASnippet.php")
-  ;; (define-key php-mode-map (kbd "C-c C-y") 'yas/create-php-snippet)
+  (require 'yasnippet)
+  (yas-global-mode 1)
+  ;; Create symlink to elpa yasnippet snippets directory to use them without needing to add another directory and reloading the snippets (SLOWER)
+  ;; (add-to-list 'yas-snippet-dirs "/home/wen/.emacs.d/snippets/text-mode/")
   )
 
 ;; Trigger my-setup-php when opening files matching the given pattern
